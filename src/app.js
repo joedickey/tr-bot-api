@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV, CLIENT_ORIGIN } = require('./config')
+const patternsRouter = require('./patterns/patterns-router')
 
 const app = express()
 
@@ -19,7 +20,9 @@ app.use(
     })
 )
 
-app.get('/api/', (req, res) => {
+app.use('/api/patterns', patternsRouter)
+
+app.get('/', (req, res) => {
     res.json({ok: true});
 })
 
