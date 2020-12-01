@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../REACT/tr-bot"
+		},
+		{
+			"path": "../../REACT/tr-bot-movestate-branch"
 		}
 	],
 	"settings": {}

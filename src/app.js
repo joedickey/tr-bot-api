@@ -14,13 +14,18 @@ const morganOption = (NODE_ENV === 'production')
 
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(
-    cors({
-        origin: CLIENT_ORIGIN
-    })
-)
+// app.use(
+//     cors({
+//         origin: CLIENT_ORIGIN
+//     })
+// )
 
-app.use('/api/patterns', patternsRouter)
+const corsOptions = {
+    origin: CLIENT_ORIGIN,
+    optionsSuccessStatus: 200
+}
+
+app.use('/api/patterns', cors(corsOptions), patternsRouter)
 
 app.get('/', (req, res) => {
     res.json({ok: true});
