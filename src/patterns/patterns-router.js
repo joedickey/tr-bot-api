@@ -5,7 +5,7 @@ const PatternsService = require('./patterns-service')
 const patternsRouter = express.Router()
 const jsonParser = express.json()
 
-const serializePattern = pattern => ({
+const serializePattern = pattern => ({ // format and sanitize responses
     id: Number(pattern.id),
     name: xss(pattern.name),
     user_id: Number(xss(pattern.user_id)),
@@ -74,7 +74,7 @@ patternsRouter
                 })
                 .catch(next)
         })
-        .patch(jsonParser, (req, res, next) => {
+        .patch(jsonParser, (req, res, next) => { // can be used to add an 'Edit Pattern' functionality
             const knexInstance = req.app.get('db')
             const {name, kick_steps, snare_steps, hh1_steps, hh2_steps, clap_steps, perc_steps} = req.body
             const patternToUpdate = {name, kick_steps, snare_steps, hh1_steps, hh2_steps, clap_steps, perc_steps}
