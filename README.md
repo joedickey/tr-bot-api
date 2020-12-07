@@ -1,26 +1,44 @@
-# Express Boilerplate!
+# TR-BOT: Drum Machine
 
-This is a boilerplate project used for starting new projects!
+The TR-BOT is a browser based drum machine app with a 16-step sequencer.
 
-## Set up
+Live Version: <https://tr-bot-project.vercel.app/>
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+![Imgur](https://i.imgur.com/4CZkK6l.png)
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## Summary
 
-## Scripts
+The TR-BOT is a sample based drum machine built using the Tone.js library. It is modeled and styled after the iconic line of Roland hardware drum machines (TR-808, TR-909, TR-606) and hosts 6 different instrument sounds including Kick, Snare, High Hat 1, High Hat 2, Handclap, and Percussion. The interface is that of a 16-step sequencer which allows a user to build custom drum patterns by toggling any step either on or off. Audio playback is initiated by pressing the 'Play' button and stopped by pressing 'Stop'. At any time the sequencer can be cleared by pressing the 'Clear Steps' button. A user can also save a custom pattern and then toggle between patterns using the drop down menu below the sequencer GUI. 
 
-Start the application `npm start`
+Note when using on mobile make sure the device is not set to silent in order to hear audio playback.
 
-Start nodemon for the application `npm run dev`
 
-Run the tests `npm test`
+## API
 
-## Deploying
+This API is used to save patterns for the client-side TR-BOT: Drum Machine App in a PostgreSQL database.
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+Base URL: https://desolate-depths-97545.herokuapp.com/api
+
+Available endpoints include:
+* /patterns
+
+Supported HTTP methods:
+* GET
+* POST
+* DELETE
+
+
+## Technology Used
+
+### Back End
+* Node.js
+* Express
+* PostgreSQL
+* Knex
+
+## Testing
+* Mocha
+* Supertest
+
+## Production
+* Heroku
